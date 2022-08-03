@@ -1,0 +1,28 @@
+.main-container{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+}
+
+.select{
+    padding: .5rem 1rem;
+    border-radius: var(--border-radius);
+    background-color: transparent;
+    border: 1px #ced4da solid;
+    position: relative;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.select:focus{
+    outline: 5px rgba(13, 110, 253, 0.3) solid;
+    border: 1px solid rgba(13, 110, 253, 0.5);
+}
+
+
+@media screen and (min-width: 990px){
+    .main-container{
+        width: 24%;
+    }
+}

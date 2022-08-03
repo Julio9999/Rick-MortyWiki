@@ -1,0 +1,28 @@
+.characters-container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+
+.grid-container{
+    flex: 1;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+    margin-bottom: 5rem;
+    width: 100%;
+    padding: 0 1rem;
+}
+
+
+@media screen and (min-width: 990px){
+    .grid-container{
+        grid-template-columns: repeat(auto-fit, 255px);
+    }
+
+    .characters-container{
+        flex-direction: row;
+    }
+}

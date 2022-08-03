@@ -1,0 +1,22 @@
+.main-container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.episode-container{
+    flex-direction: column;
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+    /* justify-content: center; */
+    width: 88%;
+    margin: auto;
+}
+
+
+@media screen and (min-width: 990px) {
+    .episode-container{
+        flex-direction: row;
+    }
+}

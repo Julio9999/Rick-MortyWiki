@@ -1,0 +1,129 @@
+.filter{
+    text-align: center;
+    width: 100%;
+}
+
+.btn-clear{
+    color: var(--blue-light);
+    text-decoration: underline;
+    border: none;
+    background-color:transparent;
+    margin: 1rem;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+
+.accordion-container{
+    padding: 0 1rem;
+}
+
+
+.accordion-item{
+    transition: .2s ease-out;
+    border-left: rgba(0,0,0,.125) thin solid;
+    border-right: rgba(0,0,0,.125) thin solid;
+    border-top: rgba(0,0,0,.125) thin solid;
+    user-select: none;
+}
+
+.accordion-item-header{
+    border-radius: 3px 3px 0px 0px;
+    padding: 1rem;
+    display: flex;
+    justify-content:space-between;
+    align-items:center;
+    cursor: pointer;
+}
+
+.accordion-item-header.active-header{
+    background-color: #E7F1FF;
+    border: 5px black solid;
+}
+
+.accordion-item-body{
+    max-height:0;
+    transition: .2s ease-out max-height;
+    overflow: hidden;
+    border-top: rgba(0,0,0,.125) thin solid;
+}
+
+.accordion-item-body.active{
+    max-height: 1000px;
+}
+
+.icon{
+    transition: .2s ease-out transform;
+}
+
+.icon.active{
+    transform: rotate(180deg);
+}
+
+
+.accordion-item-body-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items:center;
+    justify-content: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: rgba(0,0,0,.125) 2px solid;
+}
+
+.accordion-item-body-content-flexItem{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 2rem;
+    position: relative;
+}
+
+.input-container__label{
+    background-color:transparent;
+    border: var(--blue-light) solid 1px;
+    color: var(--blue-light);
+    border-radius: var(--border-radius);
+    padding: .5rem .7rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    transition: .2s ease-out all;
+    user-select: none;
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+
+.input-container__label:hover{
+    color: #fff;
+    background-color: var(--blue-light);
+}
+
+
+.input-container__radio{
+    position: absolute;
+    opacity: 0;
+}
+
+
+.input-container__radio:checked + .input-container__label{
+    color: #fff;
+    background-color: var(--blue-light);
+}
+
+
+
+.input-container.active{
+    color: #fff;
+    background-color: var(--blue-light);
+}
+
+
+@media screen  and (min-width: 990px){
+    .filter{
+        width: 25%;
+    }
+
+}
+
