@@ -8,11 +8,17 @@ export function CharacterDetails() {
     const [character, setCharacter] = useState("");
     const [isLoading, setIsLoading] = useState(true);
 
+    
+
     useEffect(() => {
         setIsLoading(true);
         getData(`https://rickandmortyapi.com/api/character/${id}`).then(data => {
-            setCharacter(data);
-            setIsLoading(false);
+            if(data.status === 200){
+                Promise.resolve(data.res).then(character => {
+                    setCharacter(character);
+                    setIsLoading(false);
+                })
+            }
         })
     }, [id])
     
