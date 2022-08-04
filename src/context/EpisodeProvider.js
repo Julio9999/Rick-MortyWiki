@@ -9,7 +9,7 @@ export function EpisodeProvider({ children }) {
     const episodeInfo = useRef(null);
     const [episodeNumber, setEpisodeNumber] = useState(1);
     const page = useRef(1);
-    const count = useRef(51);
+    const count = useRef(null);
     const [isLoading, setIsLoading] = useState(true);
 
 
@@ -20,20 +20,40 @@ export function EpisodeProvider({ children }) {
         setEpisodeNumber(num);
     }
 
+    useEffect(() => {
+        getData(`https://rickandmortyapi.com/api/episode`).then(data => {
+            if(data.status === 200){
+                Promise.resolve(data.res).then(res => {
+                    count.current = res.info.count;
+                })
+            }
+        })
+    }, [])
+
 
     useEffect(() => {
 
         setIsLoading(true)
 
-        getData(`https://rickandmortyapi.com/api/episode/${episodeNumber}`).then(episode => {
-            episodeInfo.current = { name: episode.name, date: episode.air_date };
-            setCharacters([]);
-            (async () => {
-                for (let i = 0; i < episode.characters.length; i++) {
-                    await getData(episode.characters[i]).then(res => setCharacters((prev) => prev.concat(res)));
-                }
-            })();
-            setIsLoading(false);
+        getData(`https://rickandmortyapi.com/api/episode/${episodeNumber}`).then(res => {
+            if(res.status === 200){
+                Promise.resolve(res.res).then(episode => {
+                    episodeInfo.current = { name: episode.name, date: episode.air_date };
+                    setCharacters([]);
+                    (async () => {
+                        for (let i = 0; i < episode.characters.length; i++) {
+                            await getData(episode.characters[i]).then(res => {
+                                if(res.status === 200){
+                                    Promise.resolve(res.res).then(character => {
+                                        setCharacters((prev) => prev.concat(character));
+                                    })
+                                }
+                            })
+                        }
+                        setIsLoading(false);
+                    })();
+                })
+            }
         })
 
 

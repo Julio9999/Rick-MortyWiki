@@ -13,10 +13,10 @@ export function Home() {
             <DataProvider>
                 <Form />
                 <div className={styles["main-content"]} >
-                    <Filter  />
-                    <CharactersGrid  />
+                    <Filter />
+                    <CharactersGrid />
                 </div>
-                <Pagination  />
+                <Pagination />
             </DataProvider>
         </main>
     );

@@ -1,11 +1,12 @@
 import React from "react";
 import styles from "../styleSheets/CharacterCard.module.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export function CharacterCard(props) {
+    let location = useLocation().pathname;
 
     return (
-        <Link to={`/${props.data.id}`}>
+        <Link to={location === "/" ? `${location}${props.data.id}` : `${location}/${props.data.id}`}>
             <div className={styles["character-container"]}>
                 <div className={styles["img-container"]}>
                     <img className={styles["img-container__img"]} src={props.data.image} alt={props.data.name} />

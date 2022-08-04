@@ -5,7 +5,7 @@ import styles from "../styleSheets/Pagination.module.css";
 
 export function Pagination(){
     const { pages, handlePage } = useContext(CharacterContext);
-    if(!pages){
+    if(!pages || pages === 0){
         return;
     }
 

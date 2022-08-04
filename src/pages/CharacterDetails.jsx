@@ -15,7 +15,7 @@ export function CharacterDetails() {
             setIsLoading(false);
         })
     }, [id])
-
+    
     if (isLoading) return;
 
     return (

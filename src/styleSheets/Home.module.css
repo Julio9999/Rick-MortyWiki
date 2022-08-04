@@ -1,22 +1,13 @@
-.home-container{
-    /* display: flex;
-    gap: 4rem;
-    flex-direction: column; */
-}
-
-
-
-
 .main-content{
     display: flex;
     flex-direction: column;
-    justify-content:center;
     align-items:flex-start;
     gap: 1rem;
 }
 
 @media screen and (min-width: 990px){
     .main-content{
+        justify-content:flex-start;
         flex-direction: row;
         padding: 5rem 5rem;
     }

@@ -70,7 +70,7 @@ a{
     color: rgba(0, 0, 0, 0.849);
 }
 
-.nav-bar__li--active{  
+.nav-bar__li--active{
     color: var(--blue-dark);
     font-weight: 800;
     padding-bottom: .5rem;

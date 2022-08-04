@@ -12,10 +12,10 @@ export function CharactersGrid() {
 
     const dataContext = useContext(context);
     if(dataContext.isLoading) return;
+    console.log(dataContext.characters);
 
     if(location === '/'){
-        if (dataContext.characters.length < 1) return;
-        if (dataContext.characters.status) {
+        if (dataContext.pages === 0) {
             return <div className={styles["grid-container"]}>
                 <p>No Characters Found :/</p>
             </div>;
@@ -26,10 +26,16 @@ export function CharactersGrid() {
             ))}</div>
         );
     }else {
-        return (
-            <div className={styles["grid-container"]}>{dataContext.characters.map(el => (
-                <CharacterCard data={el} key={el.id} />
-            ))}</div>
-        );
+        if(dataContext.characters.length === 0){
+            return (
+                <div className={styles["grid-container"]}>there is nobody here :/</div>
+            );
+        }else{
+            return (
+                <div className={styles["grid-container"]}>{dataContext.characters.map(el => (
+                    <CharacterCard data={el} key={el.id} />
+                ))}</div>
+            );
+        }
     }
 }
