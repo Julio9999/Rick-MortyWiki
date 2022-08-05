@@ -1,0 +1,22 @@
+.container{
+    right: 8vw;
+    z-index: 100;
+    position: fixed;
+    top: 80vh;
+    visibility: hidden;
+    background-color: #fff;
+    border: thin solid black;
+    border-radius: var(--border-radius);
+    transition: all ease .2s;
+    opacity: 0;
+}
+
+.container > * {
+    cursor: pointer;
+}
+
+.on{
+    visibility: visible;
+    opacity: 1;
+} 
+

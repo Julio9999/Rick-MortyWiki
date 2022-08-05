@@ -4,6 +4,7 @@
     --border-radius: 5px;
     --white: #ffffff;
     --dark: #212529;
+    scroll-behavior: smooth;
 }
 
 *{
