@@ -5,14 +5,20 @@ import CharacterContext from "../context/DataProvider.js";
 import EpisodeContext from "../context/EpisodeProvider.js";
 import LocationContext from "../context/LocationProvider.js"
 import { useLocation } from "react-router-dom";
+import { Spinner }  from "../components/Spinner.jsx";
 
 export function CharactersGrid() {
     const location = useLocation().pathname;
     const context = location === '/' ? CharacterContext : location === '/episodes' ?  EpisodeContext : LocationContext;
 
     const dataContext = useContext(context);
-    if(dataContext.isLoading) return;
-    console.log(dataContext.characters);
+    if(dataContext.isLoading){
+        return(
+            <div className={styles["grid-container"]}>
+                <Spinner />
+            </div>
+        )
+    }
 
     if(location === '/'){
         if (dataContext.pages === 0) {
