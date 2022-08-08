@@ -7,12 +7,9 @@ import { debounce } from "lodash";
 export function Form() {
     const { setFilters, filters } = useContext(CharacterContext);
 
-
     const handleChange = debounce((e) => {
         setFilters({status: filters.status, species: filters.species, gender: filters.gender, name: e.target.value});
     }, 500)
-
-
 
     function handleSubmit(e){
         e.preventDefault();

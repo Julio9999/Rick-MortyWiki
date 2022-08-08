@@ -21,7 +21,6 @@ export function ButtonTopBottom(){
                 setIsIntersecting(true);
             }else{
                 setIsIntersecting(false);
-                console.log('hola')
             }
         })
     }, [])
